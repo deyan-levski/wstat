@@ -1,0 +1,1 @@
+ako e, nado nado ;)
