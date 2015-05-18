@@ -1,0 +1,15 @@
+<html>
+<head>
+<table align="center"><tr><td><script type="text/javascript"
+src="dygraph-combined.js"></script>
+</head>
+<body>
+<center><h4>Daily Air, Soil Temperature [C] and Air Humidity [%]</h4></center><div id="graphdiv"style="width:800px; height:400px;"></div>
+<script type="text/javascript">
+g = new Dygraph(  
+document.getElementById("graphdiv"),"x.csv",
+{
+labels: [ 'Date', 'AirTemp', 'SoilTemp', 'Humidity' ],            'AirTemp': {              axis: {              }            },            'SoilTemp': {              axis: 'AirTemp'            },            axes: {              Humidity: {                labelsKMB: true              }            }          });
+</script>
+<center><h4>Copyright 2011 - Eng. Deyan Levski</h4></center></body>
+</html>
