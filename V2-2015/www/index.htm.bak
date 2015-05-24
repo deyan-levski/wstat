@@ -7,12 +7,12 @@
 <table border="9"><tr><td>Temperature:</td><td><script>document.write(MNS,TW1,TW2,'.',TF,TF1)</script> C</td> 
 <td>Wind Speed:</td><td><script>w(WS)</script> m/s</td>
 <td>Wind Direction:</td><td><script>w(WD)</script></td>
-<td>Humidity:</td><td><script>w(RH)</script> %</td></tr>
+<td>Humidity:</td><td><script>w(RH)</script> %</td>
 
-<tr><td>Pressure:</td><td><script>w(BP)</script> hPa</td>
+<td>Pressure:</td><td><script>w(BP)</script> hPa</td>
 <td>Soil Temperature:</td><td><script>document.write(MNS2,ST)</script> C</td>
 <td>Solar Radiation:</td><td><script>w(AN3)</script> W/m<SUP>2</SUP></td>
-<td>Background Radioactivity:</td><td><script>w(RAD2)</script> uSv/h</td></tr><tr>
+<td>Background Radioactivity:</td><td><script>w(RAD2)</script> uSv/h</td>
 
 <td>Dew Point:</td><td><script>w(TD)</script> C</td>
 <td>Heat Index:</td><td><script>w(DP)</script> C</td>
