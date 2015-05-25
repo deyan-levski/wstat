@@ -1,7 +1,9 @@
 #!/bin/sh
 
-rtl_power -f 26M:1750M:125k -g 25 -e 20h radiomap.csv
+BASE="/home/deyan"
 
-./heatmap.py radiomap.csv ../../www/img/radiomap.jpg
+rtl_power -f 26M:1750M:125k -g 25 -e 20h $BASE/station/run/sdr/radiomap.csv
 
-rm radiomap.csv
+python $BASE/station/run/sdr/heatmap.py $BASE/station/run/sdr/radiomap.csv $BASE/station/www/img/radiomap.jpg
+
+rm $BASE/station/run/sdr/radiomap.csv
