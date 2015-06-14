@@ -1,12 +1,12 @@
 ## Installation instructions
 #
 # Version P1A, Deyan Levski, deyan.levski@gmail.com, 10.06.2015
-#
+# Version P2A, Added I2C, SPI, modules installation, deyan.levski@gmail.com, 14.06.2015
 #
 
 1. On a vanilla debian install the following packages:
 
-apache2 rtl-sdr fswebcam python python-pip python-devel
+apache2 rtl-sdr fswebcam python python-pip python-dev 
 
 OBS: rtl-sdr needs backports repo, you should add 
 
@@ -15,6 +15,8 @@ deb http://httpredir.debian.org/debian wheezy-backports main contrib non-free
 to /etc/apt/source.list
 
 then apt-get update list
+
+OBS2: fswebcam requires gsprc kernel module to successfully get /dev/video0 when a webcam is attached
 
 2. Change apache2's default www with a symbolic link pointing to the station's www.
 
@@ -44,4 +46,15 @@ crontab -l
 
 pip install pil
 
-7. 
+7. Download and install pyA20
+wget https://pypi.python.org/packages/source/p/pyA20/pyA20-0.2.0.tar.gz
+Also pyA20-0.2.0.tar.gz added to ~/modules folder for back-compatibility if new versions are released or source lost in future.
+
+python setup.py build
+python setup.py install 
+
+8. Check if /dev/i2c-* and /dev/spi* modules exist, if not debian kernel does not contain the spidev or i2c module.
+
+9. Run the read_i2c.py and blink_led.py examples to make sure all goes smooth. Should work out of the box with the official Debian release by Olimex.
+
+10. 
