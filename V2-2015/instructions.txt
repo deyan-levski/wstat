@@ -1,0 +1,47 @@
+## Installation instructions
+#
+# Version P1A, Deyan Levski, deyan.levski@gmail.com, 10.06.2015
+#
+#
+
+1. On a vanilla debian install the following packages:
+
+apache2 rtl-sdr fswebcam python python-pip python-devel
+
+OBS: rtl-sdr needs backports repo, you should add 
+
+deb http://httpredir.debian.org/debian wheezy-backports main contrib non-free
+
+to /etc/apt/source.list
+
+then apt-get update list
+
+2. Change apache2's default www with a symbolic link pointing to the station's www.
+
+rm -rf /var/www
+ln -s /home/deyan/station/www www
+
+3. Change to local timezone
+mv /etc/localtime /etc/localtime.old
+cp /usr/share/zoneinfo/Europe/Sofia /etc/localtime
+
+Then do a check with "date"
+
+4. Copy ~/station/etc/ntp.conf to /etc/ntp.conf to update the NTP server database
+
+5. Setup the crontab:
+
+Under root specify a cronfile to use:
+crontab -u deyan ~/station/run/cronacqtab 
+
+Restart cron:
+/etc/init.d/cron restart
+
+Reboot and check if the corresponding crontab file is used
+crontab -l
+
+6. Install python PIL library
+
+pip install pil
+
+7. 
