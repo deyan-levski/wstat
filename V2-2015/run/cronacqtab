@@ -21,5 +21,5 @@
 # 
 # m h  dom mon dow   command
 
-* * * * * /home/wstat/V2-2015/run/run.sh
-20 3 * * * /home/wstat/V2-2015/run/radio.sh
+* * * * * /home/wstat/wstat/V2-2015/run/run.sh
+20 3 * * * /home/wstat/wstat/V2-2015/run/radio.sh
