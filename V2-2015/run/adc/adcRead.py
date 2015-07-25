@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import time
-import os
+#import os
 
 from pyA20 import spi
 
@@ -22,24 +22,22 @@ spi.open("/dev/spidev1.0", mode=0, delay=0, bits_per_word=8, speed=100000)
 #spi.read(2) #Read 2 bytes from slave device
 #spi.xfer([0x01, 0x02], 2) #Write 2 byte and then read 2 bytes.
 
-#def ReadChannel(channel):
-#	adc = spi.xfer([1,(8+channel)<<4,0],2)
-#	#data = ((adc[1]&3) << 8) + adc[2]
-#	data = adc[2]
-#	return data
-
 def ReadChannel(channel):
-	adc = spi.xfer([0x01,0x90,0x00],3)
-	data = adc
-	return data
+	adc = spi.xfer([1,(8+channel)<<4,0],3)
+	data = ((adc[1]&3) << 8) + adc[2]
+	return adc
+
+#def ReadChannel(channel):
+#	adc = spi.xfer([0x01,0x90],2)
+#	data = adc
+#	return data
 
 
 # Define sensor channels
-light_channel = 1
-temp_channel  = 1
+light_channel = 0
  
 # Define delay between readings
-delay = 5
+delay = 0.5
  
 while True:
  
@@ -55,6 +53,7 @@ while True:
   # Print out results
   print "--------------------------------------------"
   print("ADCDATA: {}".format(light_level))
+#  print("{}".format(sf))
  
   # Wait before repeating loop
   time.sleep(delay)
