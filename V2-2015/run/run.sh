@@ -5,6 +5,6 @@
 # Version P1A Deyan Levski, didolevski@gmail.com, 12.06.2015
 #
 
-BASE="/home/deyan/station"
+BASE="/home/wstat/wstat/V2-2015"
 
 sh $BASE/run/camera/capture.sh
