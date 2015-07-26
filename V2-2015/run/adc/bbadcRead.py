@@ -14,10 +14,8 @@ from pyA20.gpio import connector
 
 gpio.init() 
  
-#GPIO.setmode(GPIO.BCM)
 DEBUG = 1
  
-# read SPI data from MCP3008 chip, 8 possible adc's (0 thru 7)
 def readadc(adcnum, CLK, MOSI, MISO, CS):
         if ((adcnum > 7) or (adcnum < 0)):
                 return -1
@@ -39,7 +37,7 @@ def readadc(adcnum, CLK, MOSI, MISO, CS):
                 gpio.output(CLK, 0)
  
         adcout = 0
-        # read in one empty bit, one null bit and 10 ADC bits
+
         for i in range(14):
                 gpio.output(CLK, 1)
                 gpio.output(CLK, 0)
@@ -51,15 +49,14 @@ def readadc(adcnum, CLK, MOSI, MISO, CS):
         
         adcout >>= 1       # first bit is 'null' so drop it
         return adcout
- 
-# change these as desired - they're the pins connected from the
-# SPI port on the ADC to the Cobbler
+
+# set ports
 SPICLK = port.PI17
 SPIMISO = port.PI19
 SPIMOSI = port.PI18
 SPICS = port.PI16
  
-# set up the SPI interface pins
+# set pins I/O
 gpio.setcfg(SPIMOSI, 1) #MOSI
 gpio.setcfg(SPIMISO, 0) #MISO
 gpio.setcfg(SPICLK, 1) #CLK
