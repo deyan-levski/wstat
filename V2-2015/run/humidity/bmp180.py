@@ -18,14 +18,17 @@
 #import smbus
 import time
 from ctypes import c_short
- 
+import csv
+
 from pyA20 import i2c
 
-DEVICE = 0x77 # Default device I2C address
-
-i2c.init("/dev/i2c-1")
-
+<<<<<<< HEAD
  
+=======
+# Default device I2C address
+DEVICE = 0x77
+
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
 def convertToString(data):
   # Simple function to convert binary data into
   # a string
@@ -40,36 +43,42 @@ def getUshort(data, index):
   return (data[index] << 8) + data[index + 1]
 
 def readBmp180Id(addr=DEVICE):
-
-  i2c.open(addr) #Slave Device adress
+  #Slave Device adress
+  i2c.open(addr)
 
   # Register Address
   REG_ID=0xD0
 
-  i2c.write([REG_ID]) #Set address at 0xD0 register
+  #Set address at 0xD0 register
+  i2c.write( [REG_ID] )
+  ( chip_id, chip_version ) = i2c.read(2)
 
-  (chip_id, chip_version) = i2c.read(2)
-  
   i2c.close()
-
   return (chip_id, chip_version)
-  
-def readBmp180(addr=DEVICE):
 
+<<<<<<< HEAD
+=======
+def readBmp180(addr=DEVICE):
+  #Slave Device adress
+  i2c.open(addr)
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
 
   # Register Addresses
   REG_CALIB  = 0xAA
   REG_MEAS   = 0xF4
   REG_MSB    = 0xF6
   REG_LSB    = 0xF7
+
   # Control Register Address
   CRV_TEMP   = 0x2E
-  CRV_PRES   = 0x34 
+  CRV_PRES   = 0x34
+
   # Oversample setting
-  OVERSAMPLE = 3    # 0 - 3
-  
+  OVERSAMPLE = 0   # 0 - 3
+
   # Read calibration data
   # Read calibration data from EEPROM
+<<<<<<< HEAD
  
   i2c.open(addr) #Slave Device adress
   time.sleep(0.05)
@@ -79,6 +88,10 @@ def readBmp180(addr=DEVICE):
   time.sleep(0.05)
 
   #cal = bus.read_i2c_block_data(addr, REG_CALIB, 22)
+=======
+  i2c.write([REG_CALIB])
+  cal = i2c.read(22)
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
 
   # Convert byte data to word values
   AC1 = getShort(cal, 0)
@@ -93,6 +106,7 @@ def readBmp180(addr=DEVICE):
   MC  = getShort(cal, 18)
   MD  = getShort(cal, 20)
 
+<<<<<<< HEAD
   i2c.close()
   time.sleep(0.05)
 
@@ -125,19 +139,48 @@ def readBmp180(addr=DEVICE):
   time.sleep(0.04)
   i2c.open(addr) #Slave Device address
   time.sleep(0.04)
+=======
+  print("AC1:",AC1)
+  print("AC2:",AC2)
+  print("AC3:",AC3)
+  print("AC4:",AC4)
+  print("AC5:",AC5)
+  print("AC6:",AC6)
+  print("B1:",B1)
+  print("B2:",B2)
+  print("MB:",MB)
+  print("MC:",MC)
+  print("MD",MD)
+
+  # Read temperature
+  i2c.write( [REG_MEAS, CRV_TEMP] )
+  time.sleep(0.015)
+
+  i2c.write([0xF6])
+  ( msb, lsb ) = i2c.read( 2 )
+
+  UT = (msb << 8) + lsb
+  print("msb,lsb",msb,lsb)
+  print("UT",UT)
+
+  # Read pressure
+  i2c.write([REG_MEAS, CRV_PRES + (OVERSAMPLE << 6)])
+  time.sleep(0.14)
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
   i2c.write([REG_MSB])
   time.sleep(0.04)
   (msb, lsb, xsb) = i2c.read(3)
   time.sleep(0.04)
   i2c.close()
-
+  print("msb,lsb,xsb",msb,lsb,xsb)
   UP = ((msb << 16) + (lsb << 8) + xsb) >> (8 - OVERSAMPLE)
+  print("UP",UP)
 
   # Refine temperature
   X1 = ((UT - AC6) * AC5) >> 15
   X2 = (MC << 11) / (X1 + MD)
   B5 = X1 + X2
-  temperature = (B5 + 8) >> 4
+  temperature = ( B5 + 8 ) >> 4
 
   # Refine pressure
   B6  = B5 - 4000
@@ -155,24 +198,37 @@ def readBmp180(addr=DEVICE):
 
   P = (B7 * 2) / B4
 
-  X1 = (P >> 8) * (P >> 8)
-  X1 = (X1 * 3038) >> 16
-  X2 = (-7357 * P) >> 16
-  pressure = P + ((X1 + X2 + 3791) >> 4)
+  X1 = ( P >> 8 ) * ( P >> 8 )
+  X1 = ( X1 * 3038 ) >> 16
+  X2 = ( -7357 * P ) >> 16
+  pressure = P + ( (X1 + X2 + 3791) >> 4 )
 
-  return (temperature/10.0,pressure/ 100.0)
+  return ( temperature / 10.0, pressure/ 100.0 )
 
 def main():
-    
+  i2c.init("/dev/i2c-1")
+
   (chip_id, chip_version) = readBmp180Id()
+
   print "Chip ID     :", chip_id
   print "Version     :", chip_version
+  print
+
+  ( temperature, pressure ) = readBmp180()
 
   print
-  
-  (temperature,pressure)=readBmp180()
   print "Temperature : ", temperature, "C"
   print "Pressure    : ", pressure, "mbar"
+  print
 
-if __name__=="__main__":
+  RESULTS = [
+    [ "Temperature", "Pressure" ],
+    [ temperature, pressure ]
+  ]
+
+  with open('some.csv', 'wb') as f:
+    writer = csv.writer( f )
+    writer.writerows( RESULTS )
+
+if __name__ == "__main__":
    main()
