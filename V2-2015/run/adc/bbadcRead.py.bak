@@ -1,6 +1,6 @@
 #!/usr/bin/env python
  
-# Bit-Banged SPI for the MCP3008 ADC chip suited for Olimex's Olinuxino MICRO Allwinner A20 processor board
+# Bit-Banged SPI for MCP3008 ADC chip suited for Olimex's Olinuxino MICRO Allwinner A20 processor board
 #
 # Initial version P1A, Deyan Levski, deyan.levski@gmail.com, 25/07/2015
 #
