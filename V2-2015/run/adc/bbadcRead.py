@@ -39,7 +39,7 @@ def readadc(adcnum, CLK, MOSI, MISO, CS):
  
         adcout = 0
         # read in one empty bit, one null bit and 10 ADC bits
-        for i in range(12):
+        for i in range(14):
                 gpio.output(CLK, 1)
                 gpio.output(CLK, 0)
                 adcout <<= 1
