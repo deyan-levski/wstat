@@ -22,9 +22,13 @@ import csv
 
 from pyA20 import i2c
 
+<<<<<<< HEAD
+ 
+=======
 # Default device I2C address
 DEVICE = 0x77
 
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
 def convertToString(data):
   # Simple function to convert binary data into
   # a string
@@ -52,9 +56,12 @@ def readBmp180Id(addr=DEVICE):
   i2c.close()
   return (chip_id, chip_version)
 
+<<<<<<< HEAD
+=======
 def readBmp180(addr=DEVICE):
   #Slave Device adress
   i2c.open(addr)
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
 
   # Register Addresses
   REG_CALIB  = 0xAA
@@ -71,8 +78,20 @@ def readBmp180(addr=DEVICE):
 
   # Read calibration data
   # Read calibration data from EEPROM
+<<<<<<< HEAD
+ 
+  i2c.open(addr) #Slave Device adress
+  time.sleep(0.05)
+
   i2c.write([REG_CALIB])
   cal = i2c.read(22)
+  time.sleep(0.05)
+
+  #cal = bus.read_i2c_block_data(addr, REG_CALIB, 22)
+=======
+  i2c.write([REG_CALIB])
+  cal = i2c.read(22)
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
 
   # Convert byte data to word values
   AC1 = getShort(cal, 0)
@@ -87,6 +106,40 @@ def readBmp180(addr=DEVICE):
   MC  = getShort(cal, 18)
   MD  = getShort(cal, 20)
 
+<<<<<<< HEAD
+  i2c.close()
+  time.sleep(0.05)
+
+  # Read temperature
+  i2c.open(addr) #Slave Device adress
+  time.sleep(0.05)
+
+  i2c.write([REG_MEAS, CRV_TEMP])
+  time.sleep(0.05)
+
+  i2c.close()
+
+  time.sleep(0.05)
+
+  i2c.open(addr) #Slave Device adress
+  time.sleep(0.05)
+ 
+  (msb, lsb) = i2c.read(2)
+  UT = (msb << 8) + lsb
+  time.sleep(0.05)
+ 
+  i2c.close()
+
+  # Read pressure
+  i2c.open(addr) #Slave Device address
+  time.sleep(0.05)
+  i2c.write([REG_MEAS, (CRV_PRES + (OVERSAMPLE << 6))])
+  time.sleep(0.05)
+  i2c.close()
+  time.sleep(0.04)
+  i2c.open(addr) #Slave Device address
+  time.sleep(0.04)
+=======
   print("AC1:",AC1)
   print("AC2:",AC2)
   print("AC3:",AC3)
@@ -113,8 +166,11 @@ def readBmp180(addr=DEVICE):
   # Read pressure
   i2c.write([REG_MEAS, CRV_PRES + (OVERSAMPLE << 6)])
   time.sleep(0.14)
+>>>>>>> 2066dfbee270812bf435b6e815ff896003e6ccf1
   i2c.write([REG_MSB])
+  time.sleep(0.04)
   (msb, lsb, xsb) = i2c.read(3)
+  time.sleep(0.04)
   i2c.close()
   print("msb,lsb,xsb",msb,lsb,xsb)
   UP = ((msb << 16) + (lsb << 8) + xsb) >> (8 - OVERSAMPLE)
