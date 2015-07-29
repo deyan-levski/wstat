@@ -72,11 +72,10 @@ ch5 = readadc(5, SPICLK, SPIMOSI, SPIMISO, SPICS)
 ch6 = readadc(6, SPICLK, SPIMOSI, SPIMISO, SPICS)
 ch7 = readadc(7, SPICLK, SPIMOSI, SPIMISO, SPICS)
 
-print "CH0:", ch0
-print "CH1:", ch1
-print "CH2:", ch2
-print "CH3:", ch3
-print "CH3:", ch3
+print "CO-sens:", ch0
+print "RH-sens:", ch1
+print "Air-tmp:", ch2
+print "Soil-tmp:", ch3
 print "CH4:", ch4
 print "CH5:", ch5
 print "CH6:", ch6

@@ -10,16 +10,16 @@
 # Set input ports
 #
 
-for i in `seq 1 1 5`; do echo $i > /sys/class/gpio/export; done
+for i in `seq 1 1 8`; do echo $i > /sys/class/gpio/export; done
 
 PORTN=gpio1_pb0
-PORTS=gpio2_pb1
-PORTE=gpio3_pi0
-PORTW=gpio4_pi1
-PORTNW=gpio5_pi2
-PORTNE=gpio6_pi3
-PORTSW=gpio7_pi10
-PORTSE=gpio8_pi11
+PORTS=gpio2_pi0
+PORTE=gpio3_pi2
+PORTW=gpio4_pi10
+PORTNW=gpio5_pc3
+PORTNE=gpio6_pc16
+PORTSW=gpio7_pc18
+PORTSE=gpio8_pc24
 
 echo in > /sys/class/gpio/$PORTN/direction
 echo in > /sys/class/gpio/$PORTS/direction
@@ -39,8 +39,8 @@ NE=`cat /sys/class/gpio/$PORTNE/value`
 SW=`cat /sys/class/gpio/$PORTSW/value` 
 SE=`cat /sys/class/gpio/$PORTSE/value` 
 
-echo "N,S,E,W,NW,NE,SW,SE" > dirwind.csv
-echo "$N,$S,$E,$W,$NW,$NE,$SW,$SE" >> dirwind.csv
+echo "N,S,E,W,NW,NE,SW,SE" # > dirwind.csv
+echo "$N,$S,$E,$W,$NW,$NE,$SW,$SE" # >> dirwind.csv
 
 
 
