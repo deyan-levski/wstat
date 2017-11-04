@@ -1,0 +1,77 @@
+[DEVICE]
+Name=P18F4525
+Clock=40000000
+[MEMORY_MODEL]
+Value=0
+[BUILD_TYPE]
+Value=0
+[ACTIVE_TAB]
+Value=HTTP_Demo.c
+[USE_EEPROM]
+Value=0
+[EEPROM_DEFINITION]
+Value=
+[FILES]
+Count=1
+File0=HTTP_Demo.c
+[BINARIES]
+Count=0
+[IMAGES]
+Count=0
+ActiveImageIndex=-1
+[OPENED_FILES]
+Count=1
+File0=HTTP_Demo.c
+[EEPROM]
+Count=0
+[ACTIVE_COMMENTS_FILES]
+Count=1
+File0=Serial_Ethernet_Board.xml
+[OTHER_FILES]
+Count=0
+[SEARCH_PATH]
+Count=11
+Path0=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\defs\
+Path1=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\uses\P18\
+Path2=C:\Documents and Settings\Administrator\Desktop\Source PIC\
+Path3=C:\Documents and Settings\Administrator\Desktop\Sredna Kula WS\Sredna_Kula_Weather_Station\Sredna KUla Eth_Serv_v.0.16\
+Path4=C:\Documents and Settings\Administrator\Desktop\Sredna_Kula_Weather_Station\Sredna KUla Eth_Serv_v.0.16\
+Path5=C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.16\
+Path6=C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.15\
+Path7=C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.14\
+Path8=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\HTTP Demo\
+Path9=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\
+Path10=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\Basic Realm\
+[HEADER_PATH]
+Count=2
+Path0=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\Basic Realm\
+Path1=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Uses\P18\
+[HEADERS]
+Count=1
+File0=C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\Basic Realm\httpUtils.h
+[PLDS]
+Count=0
+[Useses]
+Count=16
+File0=ADC
+File1=Button
+File2=Compact_Flash
+File3=Compact_Flash_FAT16
+File4=Conversions
+File5=C_Math
+File6=C_Stdlib
+File7=C_String
+File8=C_Type
+File9=Lcd
+File10=Lcd_Constants
+File11=Manchester
+File12=One_Wire
+File13=Software_I2C
+File14=SPI
+File15=SPI_Ethernet
+[EXPANDED NODES]
+Node1=Sources
+Node2=Header Files
+Node3=Active Comments Files
+Node4=Output Files
+Count=4

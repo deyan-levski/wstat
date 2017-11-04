@@ -1,0 +1,13 @@
+<Serial_Ethernet_Board>
+	<Attributes>
+		<Url>http://www.mikroe.com/eng/products/view/14/serial-ethernet-board/</Url>
+		<Image></Image>
+		<File></File>
+	</Attributes>
+	<Events>
+		<OnLeftClick>OpenUrl</OnLeftClick>
+		<OnRightClick></OnRightClick>
+		<OnDblClick>OpenUrl</OnDblClick>
+		<OnMouseOver>PreviewImage</OnMouseOver>
+	</Events>
+</Serial_Ethernet_Board>

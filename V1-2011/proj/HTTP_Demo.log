@@ -1,0 +1,17 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F4525 -DL -O11111114 -fo40 -N"C:\Documents and Settings\Administrator\Desktop\Source PIC\HTTP_Demo.mcppi" -SP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\defs\" -SP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Documents and Settings\Administrator\Desktop\Source PIC\" -SP"C:\Documents and Settings\Administrator\Desktop\Sredna Kula WS\Sredna_Kula_Weather_Station\Sredna KUla Eth_Serv_v.0.16\" -SP"C:\Documents and Settings\Administrator\Desktop\Sredna_Kula_Weather_Station\Sredna KUla Eth_Serv_v.0.16\" -SP"C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.16\" -SP"C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.15\" -SP"C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.14\" -SP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\HTTP Demo\" -SP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\" -SP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\Basic Realm\" -IP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Examples\Extra Boards\SPI Ethernet\p18\Basic Realm\" -IP"C:\Program Files\Mikroelektronika\mikroC PRO for PIC\Uses\P18\" "HTTP_Demo.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_CString.mcl" "__Lib_CStdlib.mcl" "__Lib_CMath.mcl" "__Lib_Conversions.mcl" "__Lib_Button.mcl" "__Lib_Manchester.mcl" "__Lib_OneWire.mcl" "__Lib_SoftI2C.mcl" "__Lib_ADC_A_D.mcl" "__Lib_SPI_c345.mcl" "__Lib_CF.mcl" "__Lib_CFFat16.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl" "__Lib_EthEnc28j60.mcl"	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Administrator\Desktop\Sredna Kula WS\Sredna_Kula_Weather_Station\Sredna KUla Eth_Serv_v.0.16'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Administrator\Desktop\Sredna_Kula_Weather_Station\Sredna KUla Eth_Serv_v.0.16'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.16'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.15'	 
+warning: 0	1501	Specified search path does not exist: 'C:\Documents and Settings\Administrator\Desktop\Backup\Ethernet_Server\mikroC\Eth_Serv_v.0.14'	 
+hint: 0	1139	Available RAM: 3947 [bytes], Available ROM: 49152 [bytes]	 
+diagnostics: 0	126	All files Preprocessed in 110 ms	 
+diagnostics: 0	122	Compilation Started	__ethenc28j60.h
+diagnostics: 917	123	Compiled Successfully	HTTP_Demo.c
+diagnostics: 0	127	All files Compiled in 470 ms	 
+hint: 0	1144	Used RAM (bytes): 1869 (47%)  Free RAM (bytes): 2078 (53%)	Used RAM (bytes): 1869 (47%)  Free RAM (bytes): 2078 (53%)
+hint: 0	1144	Used ROM (bytes): 23554 (48%)  Free ROM (bytes): 25598 (52%)	Used ROM (bytes): 23554 (48%)  Free ROM (bytes): 25598 (52%)
+diagnostics: 0	125	Project Linked Successfully	HTTP_Demo.mcppi
+diagnostics: 0	128	Linked in 912 ms	 
+diagnostics: 0	129	Project 'HTTP_Demo.mcppi' completed: 1693 ms	 
+diagnostics: 0	103	Finished successfully: 24 Август 2012, 11:00:35	HTTP_Demo.mcppi
